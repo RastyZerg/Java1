@@ -77,8 +77,8 @@ public class TicTac {
     private static void aiTurn() {
         if  (!( (checkPossibleWin(aiWinCondition, DOT_AI)) ||
                 (checkPossibleWin(humanWinCondition, DOT_HUMAN)) ||
-                (checkPossibleWin(humanWinCondition.substring(0, humanWinCondition.length()-1), DOT_HUMAN )) ||
-                (checkPossibleWin(aiWinCondition.substring(0, aiWinCondition.length()-1), DOT_AI)) )){
+                (checkPossibleWin(aiWinCondition.substring(0, aiWinCondition.length()-1), DOT_AI)) ||
+                (checkPossibleWin(humanWinCondition.substring(0, humanWinCondition.length()-1), DOT_HUMAN )) )){
             int x = RANDOM.nextInt(fieldSizeX);
             int y = RANDOM.nextInt(fieldSizeY);
             field[y][x] = DOT_AI;
