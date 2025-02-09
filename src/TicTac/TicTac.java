@@ -3,6 +3,7 @@ package TicTac;
 import java.util.Random;
 import java.util.Scanner;
 
+
 public class TicTac {
 
     private static final char DOT_HUMAN = 'X';
@@ -79,8 +80,11 @@ public class TicTac {
                 (checkPossibleWin(humanWinCondition, DOT_HUMAN)) ||
                 (checkPossibleWin(aiWinCondition.substring(0, aiWinCondition.length()-1), DOT_AI)) ||
                 (checkPossibleWin(humanWinCondition.substring(0, humanWinCondition.length()-1), DOT_HUMAN )) )){
-            int x = RANDOM.nextInt(fieldSizeX);
-            int y = RANDOM.nextInt(fieldSizeY);
+            int x, y;
+            do {
+                x = RANDOM.nextInt(fieldSizeX);
+                y = RANDOM.nextInt(fieldSizeY);
+            } while (!isEmptyCell(x, y));
             field[y][x] = DOT_AI;
         }
     }
@@ -112,7 +116,7 @@ public class TicTac {
 
     private static boolean checkWin(String str) {
         // hor
-         if ( checkLines(str) || checkMainDiagonals(str) || checkVerticals(str) || checkReverseDiagonals(str) ){
+        if ( checkLines(str) || checkMainDiagonals(str) || checkVerticals(str) || checkReverseDiagonals(str) ){
             return true;
         }
         return false;
@@ -238,3 +242,6 @@ public class TicTac {
         return false;
     }
 }
+
+
+
